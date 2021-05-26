@@ -29,14 +29,27 @@ public class FeesController {
     	  return feesservice.addFees(fees);
       }
       
-      @PutMapping ("/Fees")
-      public String updatefees (@RequestBody Fees fees )
+     /*@PutMapping ("/Fees/{studentID}")
+      public String updatefees (@PathVariable ("studentID") int studentID ,@RequestBody Fees fees )
       {
-    	  System.out.println("Update feess");
+    	  System.out.println("Update fees");
+    	  return feesservice.updateFees(studentID,fees);
+      }*/
+	  
+	  @PutMapping ("/Fees")
+	  public String updatefees(@RequestBody Fees fees)
+	  {
+		  System.out.println("Update fees");
     	  return feesservice.updateFees(fees);
-      }
+	  }
+	  
+	  @PutMapping ("/Fees/{studentID}")
+	  public String updatlatePayment(@RequestBody Fees fees)
+	  {
+		  System.out.println("update LatePaymentFee");
+    	 return feesservice.updatelatePaymentfees(fees);
+	  }
       
-
       @GetMapping("/Fees/{studentID}")
       public String getFeesStatus(@PathVariable("studentID") int studentID){
       	System.out.println("get fees status By studentID");

@@ -1,7 +1,10 @@
 package com.example.demo.service;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.model.FeesComp;
@@ -27,9 +30,9 @@ private MongoTemplate mongoTemplate;
 	
 	public String updateFeesComp( FeesComp feescomp )
 	{
-		// Query q=new Query();
-        //q.addCriteria(Criteria.where("compName").is(compName));
-		  mongoTemplate.save(feescomp);
+		Query q = new Query();
+		q.addCriteria(Criteria.where("compName").is(feescomp.getCompName()));
+		  mongoTemplate.findAndReplace(q,feescomp);
           System.out.println("FeesComp "+ feescomp.getCompName()+" details updated in the database.");
           return "FeesComp "+ feescomp.getCompName()+" details updated in the database.";
 		

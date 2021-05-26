@@ -16,8 +16,8 @@ public class Fees {
     private int feesTotalPaid;
     private int latePaymentFee;
     private String newAdmissionInd ;
-    
-    
+    private int totalFeesPending;
+   
 	public int getYear() {
 		return year;
 	}
@@ -73,24 +73,25 @@ public class Fees {
 		this.newAdmissionInd = newAdmissionInd;
 	}
 	
-	
-	
+	public int getTotalFeesPending() {
+		return totalFeesPending;
+	}
+	public void setTotalFeesPending(int totalFeesPending) {
+		this.totalFeesPending = totalFeesPending;
+	}
 	@Override
 	public String toString() {
 		return "Fees [year=" + year + ", admissionId=" + admissionId + ", studentID=" + studentID + ", feesDue="
 				+ feesDue + ", feesPaymentStatus=" + feesPaymentStatus + ", feesPaid=" + Arrays.toString(feesPaid)
 				+ ", feesTotalPaid=" + feesTotalPaid + ", latePaymentFee=" + latePaymentFee + ", newAdmissionInd="
-				+ newAdmissionInd + ", getYear()=" + getYear() + ", getAdmissionId()=" + getAdmissionId()
-				+ ", getStudentID()=" + getStudentID() + ", getFeesDue()=" + getFeesDue() + ", getFeesPaymentStatus()="
-				+ getFeesPaymentStatus() + ", getFeesPaid()=" + Arrays.toString(getFeesPaid()) + ", getFeesTotalPaid()="
-				+ getFeesTotalPaid() + ", getLatePaymentFee()=" + getLatePaymentFee() + ", getNewAdmissionInd()="
-				+ getNewAdmissionInd() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
-				+ super.toString() + "]";
+				+ newAdmissionInd + ", totalFeesPending=" + totalFeesPending + ", getYear()=" + getYear()
+				+ ", getAdmissionId()=" + getAdmissionId() + ", getStudentID()=" + getStudentID() + ", getFeesDue()="
+				+ getFeesDue() + ", getFeesPaymentStatus()=" + getFeesPaymentStatus() + ", getFeesPaid()="
+				+ Arrays.toString(getFeesPaid()) + ", getFeesTotalPaid()=" + getFeesTotalPaid()
+				+ ", getLatePaymentFee()=" + getLatePaymentFee() + ", getNewAdmissionInd()=" + getNewAdmissionInd()
+				+ ", getTotalFeesPending()=" + getTotalFeesPending() + ", getClass()=" + getClass() + ", hashCode()="
+				+ hashCode() + ", toString()=" + super.toString() + "]";
 	}
     
     
-    
-	
-	
-
 }

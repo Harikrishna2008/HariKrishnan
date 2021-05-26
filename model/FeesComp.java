@@ -8,7 +8,7 @@ public class FeesComp {
 	private String compName;
 	private double value;
 	private double defaultvalue;
-	private String supressedIndicator;
+	private String supressedIndicator; 
 	
 	public String getCompName() {
 		return compName;

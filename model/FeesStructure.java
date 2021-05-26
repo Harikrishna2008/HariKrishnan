@@ -11,10 +11,10 @@ public class FeesStructure {
 	private int year;
 	private String classid;
 	
-	private FeesCompName [] feesComponents;   // Contains FeesCompName And Value
+	private FeesComponents [] feesComponents;   // Contains FeesCompName And Value
 	
 	private String frozenIndicator;
-
+	
 	
 	public int getYear() {
 		return year;
@@ -32,11 +32,11 @@ public class FeesStructure {
 		this.classid = classid;
 	}
 
-	public FeesCompName[] getFeesComponents() {
+	public FeesComponents[] getFeesComponents() {
 		return feesComponents;
 	}
 
-	public void setFeesComponents(FeesCompName[] feesComponents) {
+	public void setFeesComponents(FeesComponents[] feesComponents) {
 		this.feesComponents = feesComponents;
 	}
 
