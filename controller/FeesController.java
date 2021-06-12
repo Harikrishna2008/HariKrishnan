@@ -39,10 +39,10 @@ public class FeesController {
 	   * While FeesPaid that respective student fees record updated with some business logics 
 	   */
 	  @PutMapping ("/Feesrecord")
-	  public String updatefees(@RequestBody Fees fees) throws Exception
+	  public String updatefees(@RequestBody Fees updatefeereq) throws Exception
 	  {
 		  System.out.println("Update fees");
-    	  return feesservice.updateFees(fees);
+    	  return feesservice.updateFees(updatefeereq);
 	  }
 	  
 	  /*

@@ -3,7 +3,7 @@ package com.example.demo.model;
 public class FeesComponents {
 	
 	private String compName;
-	private String value;
+	private double amount;
 	
 	public String getCompName() {
 		return compName;
@@ -11,11 +11,12 @@ public class FeesComponents {
 	public void setCompName(String compName) {
 		this.compName = compName;
 	}
-	public String getValue() {
-		return value;
+	public double getAmount() {
+		return amount;
 	}
-	public void setValue(String value) {
-		this.value = value;
+	public void setAmount(double amount) {
+		this.amount = amount;
 	}
+	
 	
 }

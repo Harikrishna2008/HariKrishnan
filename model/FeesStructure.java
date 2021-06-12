@@ -7,12 +7,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "feesstructure")
 public class FeesStructure {
-	
 	private int year;
 	private String classid;
-	
 	private FeesComponents [] feesComponents;   // Contains FeesCompName And Value
-	
+    private TermDetails [] termdetails;         // term_No , amount , duedate
 	private String frozenIndicator;
 	
 	
@@ -46,6 +44,14 @@ public class FeesStructure {
 
 	public void setFrozenIndicator(String frozenIndicator) {
 		this.frozenIndicator = frozenIndicator;
+	}
+
+	public TermDetails [] getTermdetails() {
+		return termdetails;
+	}
+
+	public void setTermdetails(TermDetails [] termdetails) {
+		this.termdetails = termdetails;
 	}
 
 	

@@ -10,14 +10,28 @@ public class Fees {
 	private int year;
     private int admissionId;
     private int studentID;
-    private int feesDue;       
-    private String feesPaymentStatus;
-    private FeesPaid [] feesPaid; 
+    private int no_of_terms;
+    private int feesDue;    
+    private TermDue[] termDue;  //  Fields:mmternNo and amount termpayment termstatus    
+    private FeesPaid [] feesPaid;  // Fields : transaction_Id,amount,date
     private int feesTotalPaid;
+    private String feesPaymentStatus;
     private int latePaymentFee;
     private String newAdmissionInd ;
     private int totalFeesPending;
-   
+	
+	public int getNo_of_terms() {
+		return no_of_terms;
+	}
+	public void setNo_of_terms(int no_of_terms) {
+		this.no_of_terms = no_of_terms;
+	}
+	public TermDue[] getTermDue() {
+		return termDue;
+	}
+	public void setTermDue(TermDue[] termDue) {
+		this.termDue = termDue;
+	}
 	public int getYear() {
 		return year;
 	}
@@ -81,17 +95,13 @@ public class Fees {
 	}
 	@Override
 	public String toString() {
-		return "Fees [year=" + year + ", admissionId=" + admissionId + ", studentID=" + studentID + ", feesDue="
-				+ feesDue + ", feesPaymentStatus=" + feesPaymentStatus + ", feesPaid=" + Arrays.toString(feesPaid)
+		return "Fees [year=" + year + ", admissionId=" + admissionId + ", studentID=" + studentID + ", no_of_terms="
+				+ no_of_terms + ", feesDue=" + feesDue + ", termDue=" + Arrays.toString(termDue)
+				+ ", feesPaymentStatus=" + feesPaymentStatus + ", feesPaid=" + Arrays.toString(feesPaid)
 				+ ", feesTotalPaid=" + feesTotalPaid + ", latePaymentFee=" + latePaymentFee + ", newAdmissionInd="
-				+ newAdmissionInd + ", totalFeesPending=" + totalFeesPending + ", getYear()=" + getYear()
-				+ ", getAdmissionId()=" + getAdmissionId() + ", getStudentID()=" + getStudentID() + ", getFeesDue()="
-				+ getFeesDue() + ", getFeesPaymentStatus()=" + getFeesPaymentStatus() + ", getFeesPaid()="
-				+ Arrays.toString(getFeesPaid()) + ", getFeesTotalPaid()=" + getFeesTotalPaid()
-				+ ", getLatePaymentFee()=" + getLatePaymentFee() + ", getNewAdmissionInd()=" + getNewAdmissionInd()
-				+ ", getTotalFeesPending()=" + getTotalFeesPending() + ", getClass()=" + getClass() + ", hashCode()="
-				+ hashCode() + ", toString()=" + super.toString() + "]";
+				+ newAdmissionInd + ", totalFeesPending=" + totalFeesPending + "]";
 	}
-    
+	
+	
     
 }
