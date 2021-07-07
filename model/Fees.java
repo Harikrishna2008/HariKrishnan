@@ -12,7 +12,7 @@ public class Fees {
     private int studentID;
     private int no_of_terms;
     private int feesDue;    
-    private TermDue[] termDue;  //  Fields:mmternNo and amount termpayment termstatus    
+    private TermDue[] termDue;      //  Fields:mmternNo and amount termpayment termstatus    
     private FeesPaid [] feesPaid;  // Fields : transaction_Id,amount,date
     private int feesTotalPaid;
     private String feesPaymentStatus;

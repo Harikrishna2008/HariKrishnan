@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import java.time.LocalDate;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -8,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Expense {
 	
     private String transaction_Id;
-	private String date;
+	private LocalDate date;
 	private int year;
 	private int studentID;
 	private String expenseType;
@@ -35,12 +36,11 @@ public class Expense {
 	public void setTransaction_Id(String temp) {
 		this.transaction_Id = temp;
 	}
-	public String getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
-	public Expense setDate(String date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
-		return null;
 	}
 	public String getExpenseType() {
 		return expenseType;

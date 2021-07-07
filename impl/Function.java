@@ -1,16 +1,15 @@
 package com.example.demo.impl;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 
 public abstract class Function  {
 
-	public static String createdate1 () {
+	public static LocalDate createdate1 () {
 		 /* Auto set of Current system date*/
-		Date dNow = new Date();
-		SimpleDateFormat day = new SimpleDateFormat("yyyy-MM-dd");
-		String date = day.format(dNow);
-		return date;
+		LocalDate currentDate = LocalDate.now();
+        return currentDate;
 	}
 	 
 	public static String createTransactionid1()

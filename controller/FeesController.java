@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.Fees;
-import com.example.demo.model.Studentmodel;
+import com.example.demo.model.Student;
 import com.example.demo.service.FeesService;
 
 @RequestMapping("/api/v1")
@@ -66,7 +66,7 @@ public class FeesController {
 	  
 	  
       /*
-       * feesstatus about particular student passing with the help of student id  
+       * fees status about particular student with the help of student id  
        */
       @GetMapping("/Fees/{studentID}")
       public String getFeesStatus(@PathVariable("studentID") int studentID){

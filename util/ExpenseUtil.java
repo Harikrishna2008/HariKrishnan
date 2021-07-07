@@ -1,5 +1,6 @@
 package com.example.demo.util;
 
+
 import com.example.demo.impl.Function;
 import com.example.demo.model.Expense;
 import com.example.demo.model.Fees;
@@ -23,18 +24,20 @@ public abstract class ExpenseUtil {
 	
 	
 	public static Fees createobj(Expense expense) {
+		System.out.println("create new Fees Object ");
 		Fees newobj = new Fees();
 		newobj.setYear(expense.getYear());
 		newobj.setStudentID(expense.getStudentID());
 		FeesPaid paid=new FeesPaid();
 	    paid.setTransaction_Id(expense.getTransaction_Id());
-		paid.setDate(expense.getDate());
+		paid.setDate(Function.createdate1());
 		paid.setAmount(expense.getAmount());
 		newobj.setFeesPaid(new FeesPaid[]{paid});
 	
 		return newobj;
 	}
-	
+
+
 	/*ExpenseUtil.updateexpense(updatefeereq);
 
 	public static String updateexpense(Map<String, Object> updatefeereq)

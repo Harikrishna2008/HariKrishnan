@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.impl.Function;
 import com.example.demo.model.Fees;
 import com.example.demo.model.FeesPaid;
 import com.example.demo.util.FeesUtil;
@@ -47,6 +48,7 @@ public class FeesService {
 			Arrays.stream(update.getFeesPaid()).forEach((value) -> updatedfesspaid.add(value)); //DB
 			Arrays.stream((FeesPaid[]) updatefeereq.getFeesPaid()).forEach((value) -> updatedfesspaid.add(value));
 			Object[] list = updatedfesspaid.toArray();
+			
 			FeesPaid[] temp = new FeesPaid[list.length];
 			for (int i = 0; i < list.length; i++) {
 				temp[i] = (FeesPaid) list[i];
@@ -71,12 +73,13 @@ public class FeesService {
 	public String updatelatePaymentfees(Map<String, Object> search) {
 		Query q = new Query();
 		q.addCriteria(Criteria.where("year").is(search.get("year")));
-		q.addCriteria(Criteria.where("studentID").is(search.get("StudentID")));
-		Fees update = mongoTemplate.findOne(q, Fees.class);
-		update.setLatePaymentFee((int) search.get("latePaymentfee"));
+		q.addCriteria(Criteria.where("studentID").is(search.get("studentID")));
+		Fees update = mongoTemplate.findOne(q,Fees.class);
+		update.setLatePaymentFee((int) search.get("latePaymentFee"));
 		mongoTemplate.findAndReplace(q, update);
 		// mongoTemplate.updateFirst(q, update, Fees.class);
-		return "StudentID " + search.get("StudentID") + " details updated in the database.";
+		return "StudentID " + search.get("studentID") + " details updated in the database.";
+		
 	}
 
 	/*

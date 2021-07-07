@@ -1,19 +1,21 @@
 package com.example.demo.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-//import com.example.demo.feesmodel.FeesCompName;
 
 
 @Document(collection = "feesstructure")
 public class FeesStructure {
 	private int year;
 	private String classid;
+	@Autowired
 	private FeesComponents [] feesComponents;   // Contains FeesCompName And Value
-    private TermDetails [] termdetails;         // term_No , amount , duedate
+	@Autowired
+    private TermDetails [] termDetails;         // term_No , amount , duedate
 	private String frozenIndicator;
 	
-	
+
 	public int getYear() {
 		return year;
 	}
@@ -47,11 +49,19 @@ public class FeesStructure {
 	}
 
 	public TermDetails [] getTermdetails() {
-		return termdetails;
+		return termDetails;
 	}
 
 	public void setTermdetails(TermDetails [] termdetails) {
-		this.termdetails = termdetails;
+		this.termDetails = termdetails;
+	}
+
+	public TermDetails [] getTermDetails() {
+		return termDetails;
+	}
+
+	public void setTermDetails(TermDetails [] termDetails) {
+		this.termDetails = termDetails;
 	}
 
 	

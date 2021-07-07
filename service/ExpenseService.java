@@ -5,6 +5,7 @@ package com.example.demo.service;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.model.Balance;
 import com.example.demo.model.Expense;
 import com.example.demo.model.Fees;
 import com.example.demo.util.ExpenseUtil;
@@ -22,17 +23,17 @@ public class ExpenseService {
 	public String addExpense(Expense expense) throws Exception {
 		ExpenseUtil.createexpense(expense);
 		Expense insertedEntity = mongoTemplate.insert(expense);
+		System.out.println(expense.getDate());
+		System.out.println("Expense " + insertedEntity.getExpenseType() + " added into the database.");
 		
-		String fees = new String("fees");
-		if((expense.getExpenseType()).equals(fees));
+		if(expense.getExpenseType().equals("fees"))
 		{
 		Fees updatefeereq = ExpenseUtil.createobj(expense);
 		FeesService.updateFees(updatefeereq);
 		}
 		
-		System.out.println("Expense " + insertedEntity.getExpenseType() + " added into the database.");
 		return "Expense " + insertedEntity.getExpenseType() + " added into the database.";
 	}
-
+	
 
 }

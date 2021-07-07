@@ -1,9 +1,11 @@
 package com.example.demo.model;
 
+import java.time.LocalDate;
+
 public class FeesPaid {
 	
 	private String transaction_Id;
-	private String date;
+	private LocalDate day;
 	private double amount;
 	
 	
@@ -13,11 +15,12 @@ public class FeesPaid {
 	public void setTransaction_Id(String transaction_Id) {
 		this.transaction_Id = transaction_Id;
 	}
-	public String getDate() {
-		return date;
+	public LocalDate getDate() {
+		return day;
+	
 	}
-	public void setDate(String date) {
-		this.date = date;
+	public void setDate(LocalDate day) {
+		this.day = day;
 	}
 	public double getAmount() {
 		return amount;
@@ -25,13 +28,6 @@ public class FeesPaid {
 	public void setAmount(double d) {
 		this.amount = d;
 	}
-	
-	
-	@Override
-	public String toString() {
-		return "FeesPaid [date=" + date + ", amount=" + amount + "]";
-	}
-	
 	
 	
 

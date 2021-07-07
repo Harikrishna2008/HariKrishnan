@@ -2,8 +2,8 @@ package com.example.demo.model;
 
 public class FeesComponents {
 	
-	private String compName;
-	private double amount;
+	private String compName; 
+	private double amount; 
 	
 	public String getCompName() {
 		return compName;

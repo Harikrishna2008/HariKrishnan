@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.model.Studentmodel;
+import com.example.demo.model.Student;
 import com.example.demo.service.Studentservice;
 
 @RequestMapping("/api/v1")
@@ -26,25 +26,25 @@ public class Studentcontroller {
         }
 
         @PostMapping("/student")
-        public String createStudent(@RequestBody Studentmodel student) {
+        public String createStudent(@RequestBody Student student) {
         	    System.out.println("CreateStudent");
                 return studentService.addStudent(student); 
         }
 
         @GetMapping("/student")
-        public List<Studentmodel> getAllStudents(){
+        public List<Student> getAllStudents(){
         	System.out.println("getAllStudents");
                 return studentService.getAllStudents();
         }
 
         @GetMapping("/student/{RollNumber}")
-        public Studentmodel getStudentByRollNumber(@PathVariable("RollNumber") int RollNumber){
+        public Student getStudentByRollNumber(@PathVariable("RollNumber") int RollNumber){
         	System.out.println("getStudentByRollNumber");
                 return studentService.getStudent(RollNumber);
         }
 
         @PutMapping("/student")
-        public String updateStudent(@RequestBody Studentmodel student){
+        public String updateStudent(@RequestBody Student student){
         	System.out.println("updateStudent");
                 return studentService.updateStudent(student);
         }

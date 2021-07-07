@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.model.Studentmodel;
+import com.example.demo.model.Student;
 
 @Service
 public class Studentservice{
@@ -21,26 +21,28 @@ public class Studentservice{
                 this.mongoTemplate = mongoTemplate;
         }
 
-        public String addStudent(Studentmodel student) {
-        	Studentmodel insertedEntity = mongoTemplate.insert(student);
+        public String addStudent(Student student) {
+        	Student insertedEntity = mongoTemplate.insert(student);
                 System.out.println("Student "+ insertedEntity.getFirstName()+" added into the database.");
-                return "Student"+ insertedEntity.getFirstName()+" added into the database.";
+                return "Student " + insertedEntity.getFirstName()+" added into the database.";
         }
 
-        public List<Studentmodel> getAllStudents() {
+        public List<Student> getAllStudents() {
         	System.out.println("getAllStudents");
-                return mongoTemplate.findAll(Studentmodel.class);
+                return mongoTemplate.findAll(Student.class);
         }
 
-        public Studentmodel getStudent(int RollNumber) {
+        public Student getStudent(int RollNumber) {
                 Query q=new Query();
                 q.addCriteria(Criteria.where("RollNumber").is(RollNumber));
                 System.out.println("getStudent");
-                return mongoTemplate.findOne(q, Studentmodel.class);
+                return mongoTemplate.findOne(q, Student.class);
         }
 
-        public String updateStudent(Studentmodel student) {
-                mongoTemplate.save(student);
+        public String updateStudent(Student student) {
+        	 Query q=new Query();
+             q.addCriteria(Criteria.where("studentID").is(student.getStudentID()));
+        	   mongoTemplate.findAndReplace(q,student);
                 System.out.println("Student "+ student.getFirstName()+" details updated in the database.");
                 return "Student "+ student.getFirstName()+" details updated in the database.";
         }
@@ -48,8 +50,7 @@ public class Studentservice{
         public String deleteStudent(int RollNumber) {
                 Query q=new Query();
                 q.addCriteria(Criteria.where("RollNumber").is(RollNumber));
-                Studentmodel student=mongoTemplate.findAndRemove(q, Studentmodel.class);
-                System.out.println("Student "+ student.getRollNumber()+" removed from database.");
-                return "Student "+ student.getRollNumber()+" removed from database.";
+                Student student=mongoTemplate.findAndRemove(q, Student.class);
+                return "Student "+ student.getFirstName()+" removed from database.";
         }
 }

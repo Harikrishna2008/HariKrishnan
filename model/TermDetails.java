@@ -1,13 +1,15 @@
 package com.example.demo.model;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 public class TermDetails {
 
 	
 	private int term_No;
 	private double amount;
-	private Date duedate; // Format : yyyy-mm-dd
+	private LocalDate dueDate; // Format : yyyy-mm-dd
+	
 	
 	public int getTerm_No() {
 		return term_No;
@@ -21,11 +23,11 @@ public class TermDetails {
 	public void setAmount(double amount) {
 		this.amount = amount;
 	}
-	public Date getDate() {
-		return duedate;
+	public LocalDate getDueDate() {
+		return dueDate;
 	}
-	public void setDate(Date date) {
-		this.duedate = date;
+	public void setDueDate(LocalDate dueDate) {
+		this.dueDate = dueDate;
 	}
 	
 	

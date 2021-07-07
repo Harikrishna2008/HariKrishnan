@@ -1,8 +1,6 @@
 package com.example.demo.util;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
+import com.example.demo.impl.Function;
 import com.example.demo.impl.StatusConstants;
 import com.example.demo.model.Fees;
 import com.example.demo.model.FeesPaid;
@@ -21,7 +19,7 @@ public class FeesUtil {
 			
 		}
 		update.setFeesTotalPaid(total);
-		
+
 		update.setTotalFeesPending(update.getFeesDue()-total);
 		
 		if(update.getTotalFeesPending()<=0)
@@ -44,16 +42,20 @@ public class FeesUtil {
 		FeesPaid lastPaid=value[value.length-1];
 		double amount = lastPaid.getAmount();
 		
-		TermDue[] i = update.getTermDue();
-		for(TermDue termDue:i)
+		TermDue[] terms = update.getTermDue();
+		for(TermDue termDue:terms)
 		{
-			if(termDue.getTermStatus()==StatusConstants.COMPLETED.getCode())  // add and for overdue
+			
+			if(termDue.getTermStatus()==StatusConstants.COMPLETED.getCode()||amount<=0)  // add and for overdue
 			{
-				System.out.println("Term Action");
+				System.out.println("Amount not valid / Zero ");
 				continue;
 			}
-			termDue.updateStatus(amount);
+			System.out.println(termDue.getTerm_No()+"_"+amount);
+			amount=termDue.updateStatus(amount);
+			System.out.println( "Balance Amount" + termDue.getTerm_No()+"_"+amount);
 		}
+		update.setTermDue(terms);
 	}
 	
 }
