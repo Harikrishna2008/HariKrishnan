@@ -1,0 +1,33 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007fb7185d6375, pid=4692, tid=4734
+#
+# JRE version: OpenJDK Runtime Environment (15.0.2+7) (build 15.0.2+7-27)
+# Java VM: OpenJDK 64-Bit Server VM (15.0.2+7-27, mixed mode, tiered, compressed oops, g1 gc, linux-amd64)
+# Problematic frame:
+# C  [libjimage.so+0x4375]  ImageStrings::find(Endian*, char const*, int*, unsigned int)+0x65
+#
+# Core dump will be written. Default location: Core dumps may be processed with "/usr/share/apport/apport %p %s %c %d %P %E" (or dumping to /home/krish/Downloads/CRUD/SchoolBillingApplication/BillingApplication_new/core.4692)
+#
+# If you would like to submit a bug report, please visit:
+#   https://bugreport.java.com/bugreport/crash.jsp
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -XX:+ShowCodeDetailsInExceptionMessages -agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:33035 -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=33629 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=localhost -Dspring.jmx.enabled=true -Dspring.application.admin.enabled=true -Djava.security.egd=file:/dev/./urandom -XX:TieredStopAtLevel=1 -Dspring.boot.project.name=BillingApplication -javaagent:/home/krish/.eclipse/org.eclipse.platform_4.19.0_285033306_linux_gtk_x86_64/configuration/org.eclipse.osgi/248/0/.cp/lib/javaagent-shaded.jar -Dfile.encoding=UTF-8 com.example.demo.BillingApplication --spring.output.ansi.enabled=always
+
+Host: AMD PRO A4-4350B R4, 5 COMPUTE CORES 2C+3G, 2 cores, 3G, Ubuntu 20.04.2 LTS
+Time: Sat May 22 07:30:51 2021 IST elapsed time: 2238.681999 seconds (0d 0h 37m 18s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007fb6d02ab260):  JavaThread "RMI TCP Connection(2)-127.0.0.1" daemon [_thread_in_vm, id=4734, stack(0x00007fb6ddb0a000,0x00007fb6ddc0b000)]
+
+Stack: [0x00007fb6ddb0a000,0x00007fb6ddc0b000],  sp=0x00007fb6ddc071c0,  free space=1012k
+Native frames: (J=compiled Java code, A=aot compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libjimage.so+0x4375]  ImageStrings::find(Endian*, char const*, int*, unsigned int)+0x65
+C  [libjimage.so+0x4f0e]  ImageFileReader::find_location_index(char const*, unsigned long long*) const+0x3e
+C  [libjimage.so+0x540c]  JIMAGE_FindResource+0xfc
+V  [libjvm.so+0x4ea4c1]
